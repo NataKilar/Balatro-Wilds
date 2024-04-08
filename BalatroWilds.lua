@@ -5,6 +5,8 @@
 --- MOD_DESCRIPTION: Retextures all planet cards to astral bodies from the game Outer Wilds
 
 --- PRIORITY: -100
+--- DISPLAY_NAME: Balatro Wilds
+--- BADGE_COLOUR: d18017
 
 ----------------------------------------------
 ------------ MOD CODE ------------------------
