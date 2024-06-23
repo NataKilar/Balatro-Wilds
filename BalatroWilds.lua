@@ -14,53 +14,69 @@
 function SMODS.INIT.BalatroWilds()
 	sendDebugMessage("Loading Balatro Wilds texture pack...")
 
-	local balatrowilds = SMODS.findModByID("BalatroWilds")
-	local tarot_sprite = SMODS.Sprite:new("Tarot", balatrowilds.path, "Tarots-balatrowilds.png", 71, 95, "asset_atli")
-	local booster_sprite = SMODS.Sprite:new("Booster", balatrowilds.path, "Boosters-balatrowilds.png", 71, 95, "asset_atli")
+	SMODS.Atlas({
+		key = 'balatrowilds_planets',
+		px = 71,
+		py = 95,
+		path = "Tarots-balatrowilds.png"
+	})
 
-	tarot_sprite:register()
-	booster_sprite:register()
+	-- TODO: Steamodded currently doesn't support claiming individual boosters, so we have manually change the Atlas here.
+	SMODS.Atlas{key = "Booster", path = "Boosters-balatrowilds.png", px = 71, py = 95, raw_key = true}
 
-	-- Claim and rename default planets --
+	-- Claim and retexture default planets --
+	SMODS.Consumable:take_ownership('c_mercury', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Planet:take_ownership('c_mercury'):register()
-	SMODS.Planets.c_mercury.loc_txt.name = "Hourglass Twins"
-
-	SMODS.Planet:take_ownership('c_venus'):register()
-	SMODS.Planets.c_venus.loc_txt.name = "The Attlerock"
+	SMODS.Consumable:take_ownership('c_venus', {
+		atlas = 'balatrowilds_planets'
+	})
 	
-	SMODS.Planet:take_ownership('c_earth'):register()
-	SMODS.Planets.c_earth.loc_txt.name = "Timber Hearth"
+	SMODS.Consumable:take_ownership('c_earth', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Planet:take_ownership('c_mars'):register()
-	SMODS.Planets.c_mars.loc_txt.name = "Brittle Hollow"
+	SMODS.Consumable:take_ownership('c_mars', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Planet:take_ownership('c_jupiter'):register()
-	SMODS.Planets.c_jupiter.loc_txt.name = "Giant's Deep"
+	SMODS.Consumable:take_ownership('c_jupiter', {
+		atlas = 'balatrowilds_planets'
+	})
 	
-	SMODS.Planet:take_ownership('c_saturn'):register()
-	SMODS.Planets.c_saturn.loc_txt.name = "Dark Bramble"
+	SMODS.Consumable:take_ownership('c_saturn', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Planet:take_ownership('c_uranus'):register()
-	SMODS.Planets.c_uranus.loc_txt.name = "Hollow's Lantern"
+	SMODS.Consumable:take_ownership('c_uranus', {
+		atlas = 'balatrowilds_planets',
+		label = 'pluto_planet'
+	})
 
-	SMODS.Planet:take_ownership('c_neptune'):register()
-	SMODS.Planets.c_neptune.loc_txt.name = "The Vessel"
+	SMODS.Consumable:take_ownership('c_neptune', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Planet:take_ownership('c_pluto'):register()
-	SMODS.Planets.c_pluto.loc_txt.name = "The Interloper"
+	SMODS.Consumable:take_ownership('c_pluto', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Planet:take_ownership('c_ceres'):register()
-	SMODS.Planets.c_ceres.loc_txt.name = "The Stranger"
+	SMODS.Consumable:take_ownership('c_ceres', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Planet:take_ownership('c_planet_x'):register()
-	SMODS.Planets.c_planet_x.loc_txt.name = "The Sun Station"
+	SMODS.Consumable:take_ownership('c_planet_x', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Planet:take_ownership('c_eris'):register()
-	SMODS.Planets.c_eris.loc_txt.name = "The Quantum Moon"
+	SMODS.Consumable:take_ownership('c_eris', {
+		atlas = 'balatrowilds_planets'
+	})
 
-	SMODS.Spectral:take_ownership('c_black_hole'):register()
-	SMODS.Spectrals.c_black_hole.loc_txt.name = "The Eye of the Universe"
+	SMODS.Consumable:take_ownership('c_black_hole', {
+		atlas = 'balatrowilds_planets'
+	})
 end
 ----------------------------------------------
 ------------ END MOD CODE --------------------
